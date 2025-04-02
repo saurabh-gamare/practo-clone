@@ -1,0 +1,20 @@
+fastapi[standard]
+sqlalchemy
+python-dotenv # storing environment variables
+alembic # migration
+
+# Postgresql
+psycopg2-binary 
+
+# Authentication
+python-jose[cryptography]
+bcrypt<4.1
+passlib>=1.7.4
+
+# Tests
+httpx
+selenium
+pytest
+
+
+ 
