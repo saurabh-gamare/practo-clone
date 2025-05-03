@@ -68,6 +68,6 @@ class ListAppmtService:
         if status:
             appointments = appointments.filter(Appointment.status==status)
 
-        return appointments.limit(limit).offset(offset)
-    
+        return {"details": appointments.limit(limit).offset(offset)}
+
 

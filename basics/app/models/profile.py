@@ -19,5 +19,12 @@ class Profile(Base):
     address = Column(String(100))
     speciality = Column(String(50))
     degree = Column(String(50))
+    city = Column(String(100))
+    place = Column(String(100))
+    clinic_name = Column(String(100))
+    consultation_fee = Column(Integer)
+    experience = Column(Integer)
+    description = Column(String(255))
+    
 
     user = relationship("User", back_populates="profile")

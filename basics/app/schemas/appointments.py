@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field, EmailStr, field_validator, model_validator, constr
 from datetime import datetime
+from typing import List
 
 
 class CreateAppmtRequest(BaseModel):
@@ -25,6 +26,10 @@ class ListAppmtResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+class AppointmentsListResponse(BaseModel):
+    details: List[ListAppmtResponse]
 
     
     

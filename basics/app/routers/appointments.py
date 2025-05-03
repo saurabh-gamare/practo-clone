@@ -5,7 +5,7 @@ from typing import Annotated, Literal
 from database import db_dependency
 from services.auth_service import CurrentUser
 from services.appointments_service import CreateAppmtService, ListAppmtService
-from schemas.appointments import CreateAppmtRequest, ListAppmtResponse
+from schemas.appointments import CreateAppmtRequest, AppointmentsListResponse
 
 
 router = APIRouter(
@@ -24,7 +24,7 @@ async def create_appointment_endpoint(db: db_dependency, request: CreateAppmtReq
 
 
 @router.get("/appointments", 
-            response_model=list[ListAppmtResponse], 
+            response_model=AppointmentsListResponse, 
             status_code=status.HTTP_200_OK,
             dependencies=[Depends(CurrentUser().check_permission(["DOCTOR", "ADMIN"]))])
 async def list_appointments_endpoint(db: db_dependency, user: user_dependency,

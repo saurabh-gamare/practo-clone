@@ -20,16 +20,16 @@ class RegisterRequest(BaseModel):
 
     @field_validator("password")
     @classmethod
-    def validate_password(cls, value: str):  
+    def validate_password(cls, value: str):
         if value == "testpassword":
             raise ValueError("Please use a different password.")
         return value
-    
+
     @model_validator(mode="before")
     @classmethod
     def validate_request(cls, values: dict):
         """
-        mode=before is used for Preprocessing data before type conversion.	
+        mode=before is used for Preprocessing data before type conversion.
         dont use if you want to validate after type conversion. eg - Checking minimum length of a string.
         """
         if values.get("role"):
